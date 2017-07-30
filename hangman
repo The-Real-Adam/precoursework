@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HANGMAN,HANGMAN,HANGMAN!!!</title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+
+
+
+    console.log('hey i am adam')
+var words = ["phone","marker","glasses","backpack"];
+var word = words[Math.floor(Math.random()* words.length)];
+
+    // setting up answerArray
+var answerArray = [];
+    for(var i = 0; i < word.length; i++){
+      answerArray[i]="_";
+    }
+var remainingLetters = word.length
+
+    //the game loop
+while(remainingLetters > 0){
+  alert(answerArray.join(" "));
+  var guess = prompt("Guess a letter, or click Cancel to stop playing.")
+  if (guess===null){
+    //exit game loop
+    break;
+  } else if (guess.length !== 1) {
+    alert("Please enter a single letter.")
+  } else {
+    //update game state with a guess
+    for (var j = 0; j<word.length; j++){
+      if (word[j]===guess){
+        answerArray[j]=guess;
+        remainingLetters--;
+      }
+    }
+  }
+
+}
+alert("AWESOME, YOU WON THE GAME!")
+console.log(word)
+console.log(answerArray)
+
+
+  </script>
+</html>
+
+
+
